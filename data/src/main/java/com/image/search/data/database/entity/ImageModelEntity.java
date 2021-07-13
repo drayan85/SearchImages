@@ -2,6 +2,7 @@ package com.image.search.data.database.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import com.image.search.data.database.table_def.IImageModel;
@@ -11,7 +12,9 @@ import com.image.search.data.database.table_def.IImageModel;
  * @version 1.0.0
  * @since 12th of July 2021
  */
-@Entity(tableName = IImageModel.TABLE_NAME)
+@Entity(tableName = IImageModel.TABLE_NAME,
+        indices = @Index(value = IImageModel.Columns.URL, unique = true)
+)
 public class ImageModelEntity {
 
     @PrimaryKey(autoGenerate = true)
@@ -19,15 +22,16 @@ public class ImageModelEntity {
     public int base_id;
 
     private String url;
+    private int height;
+    private int width;
+    private String thumbnail;
+    private int thumbnailHeight;
+    private int thumbnailWidth;
     private String name;
     private String title;
     private String provider;
-    private String image_url;
-    private String image_height;
-    private String image_width;
-    private String thumbnail;
-    private String thumbnail_height;
-    private String thumbnail_width;
+    private String imageWebSearchUrl;
+    private String webpageUrl;
 
 
     public String getUrl() {
@@ -62,28 +66,28 @@ public class ImageModelEntity {
         this.provider = provider;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getImageWebSearchUrl() {
+        return imageWebSearchUrl;
     }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImageWebSearchUrl(String imageWebSearchUrl) {
+        this.imageWebSearchUrl = imageWebSearchUrl;
     }
 
-    public String getImage_height() {
-        return image_height;
+    public int getHeight() {
+        return height;
     }
 
-    public void setImage_height(String image_height) {
-        this.image_height = image_height;
+    public void setHeight(int height) {
+        this.height = height;
     }
 
-    public String getImage_width() {
-        return image_width;
+    public int getWidth() {
+        return width;
     }
 
-    public void setImage_width(String image_width) {
-        this.image_width = image_width;
+    public void setWidth(int width) {
+        this.width = width;
     }
 
     public String getThumbnail() {
@@ -94,19 +98,27 @@ public class ImageModelEntity {
         this.thumbnail = thumbnail;
     }
 
-    public String getThumbnail_height() {
-        return thumbnail_height;
+    public int getThumbnailHeight() {
+        return thumbnailHeight;
     }
 
-    public void setThumbnail_height(String thumbnail_height) {
-        this.thumbnail_height = thumbnail_height;
+    public void setThumbnailHeight(int thumbnailHeight) {
+        this.thumbnailHeight = thumbnailHeight;
     }
 
-    public String getThumbnail_width() {
-        return thumbnail_width;
+    public int getThumbnailWidth() {
+        return thumbnailWidth;
     }
 
-    public void setThumbnail_width(String thumbnail_width) {
-        this.thumbnail_width = thumbnail_width;
+    public void setThumbnailWidth(int thumbnailWidth) {
+        this.thumbnailWidth = thumbnailWidth;
+    }
+
+    public String getWebpageUrl() {
+        return webpageUrl;
+    }
+
+    public void setWebpageUrl(String webpageUrl) {
+        this.webpageUrl = webpageUrl;
     }
 }

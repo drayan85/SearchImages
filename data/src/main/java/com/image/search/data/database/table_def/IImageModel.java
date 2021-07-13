@@ -13,28 +13,33 @@ public interface IImageModel extends IBaseTable {
 
     interface Columns extends BaseColumns {
         String URL = "url";
-        String NAME = "name";
-        String TITLE = "title";
-        String PROVIDER = "provider";
-        String IMAGE_URL = "image_url";
-        String IMAGE_HEIGHT = "image_height";
-        String IMAGE_WIDTH = "image_width";
+        String HEIGHT = "height";
+        String WIDTH = "width";
         String THUMBNAIL = "thumbnail";
         String THUMBNAIL_HEIGHT = "thumbnail_height";
         String THUMBNAIL_WIDTH = "thumbnail_width";
+        String NAME = "name";
+        String TITLE = "title";
+        String PROVIDER = "provider";
+        String IMAGE_WEB_SEARCH_URL = "image_web_search_url";
+        String WEB_PAGE_URL = "web_page_url";
     }
 
     String CREATE_TABLE_QUERY = CREATE_TABLE_IF_NOT_EXISTS
             + TABLE_NAME + " ("
             + Columns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
-            + Columns.URL + " TEXT, "
+            + Columns.URL + " TEXT NOT NULL, "
+            + Columns.HEIGHT + " INTEGER NOT NULL DEFAULT 0, "
+            + Columns.WIDTH + " INTEGER NOT NULL DEFAULT 0, "
+            + Columns.THUMBNAIL + " TEXT, "
+            + Columns.THUMBNAIL_HEIGHT + " INTEGER NOT NULL DEFAULT 0, "
+            + Columns.THUMBNAIL_WIDTH + " INTEGER NOT NULL DEFAULT 0, "
             + Columns.NAME + " TEXT , "
             + Columns.TITLE + " TEXT, "
             + Columns.PROVIDER + " TEXT, "
-            + Columns.IMAGE_URL + " TEXT, "
-            + Columns.IMAGE_HEIGHT + " TEXT, "
-            + Columns.IMAGE_WIDTH + " TEXT, "
-            + Columns.THUMBNAIL + " TEXT, "
-            + Columns.THUMBNAIL_HEIGHT + " TEXT, "
-            + Columns.THUMBNAIL_WIDTH + " TEXT )";
+            + Columns.IMAGE_WEB_SEARCH_URL + " TEXT, "
+            + Columns.WEB_PAGE_URL + " TEXT )";
+
+    String CREATE_TABLE_INDEX_URL = CREATE_UNIQUE_INDEX_IF_NOT_EXISTS + "index_" + TABLE_NAME + "_" + Columns.URL
+            + " ON " + TABLE_NAME + "(" + Columns.URL + ")";
 }

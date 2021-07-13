@@ -8,15 +8,16 @@ package com.image.search.domain.model;
 public class ImageModel {
 
     private String url;
+    private int height;
+    private int width;
+    private String thumbnail;
+    private int thumbnailHeight;
+    private int thumbnailWidth;
     private String name;
     private String title;
-    private String provider;
-    private String image_url;
-    private String image_height;
-    private String image_width;
-    private String thumbnail;
-    private String thumbnail_height;
-    private String thumbnail_width;
+    private Provider provider;
+    private String imageWebSearchUrl;
+    private String webpageUrl;
 
     public String getUrl() {
         return url;
@@ -42,36 +43,36 @@ public class ImageModel {
         this.title = title;
     }
 
-    public String getProvider() {
+    public Provider getProvider() {
         return provider;
     }
 
-    public void setProvider(String provider) {
+    public void setProvider(Provider provider) {
         this.provider = provider;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getImageWebSearchUrl() {
+        return imageWebSearchUrl;
     }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImageWebSearchUrl(String imageWebSearchUrl) {
+        this.imageWebSearchUrl = imageWebSearchUrl;
     }
 
-    public String getImage_height() {
-        return image_height;
+    public int getHeight() {
+        return height;
     }
 
-    public void setImage_height(String image_height) {
-        this.image_height = image_height;
+    public void setHeight(int height) {
+        this.height = height;
     }
 
-    public String getImage_width() {
-        return image_width;
+    public int getWidth() {
+        return width;
     }
 
-    public void setImage_width(String image_width) {
-        this.image_width = image_width;
+    public void setWidth(int width) {
+        this.width = width;
     }
 
     public String getThumbnail() {
@@ -82,19 +83,27 @@ public class ImageModel {
         this.thumbnail = thumbnail;
     }
 
-    public String getThumbnail_height() {
-        return thumbnail_height;
+    public int getThumbnailHeight() {
+        return thumbnailHeight;
     }
 
-    public void setThumbnail_height(String thumbnail_height) {
-        this.thumbnail_height = thumbnail_height;
+    public void setThumbnailHeight(int thumbnailHeight) {
+        this.thumbnailHeight = thumbnailHeight;
     }
 
-    public String getThumbnail_width() {
-        return thumbnail_width;
+    public int getThumbnailWidth() {
+        return thumbnailWidth;
     }
 
-    public void setThumbnail_width(String thumbnail_width) {
-        this.thumbnail_width = thumbnail_width;
+    public void setThumbnailWidth(int thumbnailWidth) {
+        this.thumbnailWidth = thumbnailWidth;
+    }
+
+    public String getWebpageUrl() {
+        return webpageUrl;
+    }
+
+    public void setWebpageUrl(String webpageUrl) {
+        this.webpageUrl = webpageUrl;
     }
 }
