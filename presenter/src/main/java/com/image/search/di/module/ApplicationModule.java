@@ -30,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Dagger module that provides objects which will live during the application lifecycle.
  *
- * @author Paramanathan Ilandrayan <theebankala@gmail.com>
+ * @author Paramanathan Ilanthirayan <theebankala@gmail.com>
  * @version 1.0.0
  * @since 12th of July 2021
  */

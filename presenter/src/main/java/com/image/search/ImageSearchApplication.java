@@ -7,7 +7,7 @@ import com.image.search.di.component.DaggerApplicationComponent;
 import com.image.search.di.module.ApplicationModule;
 
 /**
- * @author Paramanathan Ilandrayan <theebankala@gmail.com>
+ * @author Paramanathan Ilanthirayan <theebankala@gmail.com>
  * @version 1.0.0
  * @since 12th og July 2021
  */

@@ -1,4 +1,4 @@
-package com.image.search.domain.database;
+package com.image.search.data.database;
 
 import android.content.Context;
 
@@ -7,10 +7,11 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.image.search.domain.database.entity.ImageModelEntity;
+import com.image.search.data.database.entity.ImageModelEntity;
+
 
 /**
- * @author Paramanathan Ilandrayan <theebankala@gmail.com>
+ * @author Paramanathan Ilanthirayan <theebankala@gmail.com>
  * @version 1.0.0
  * @since 12th of July 2021
  */

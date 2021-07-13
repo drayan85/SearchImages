@@ -1,22 +1,11 @@
-package com.image.search.data.database.entity;
-
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
-import com.image.search.data.database.table_def.IImageModel;
+package com.image.search.domain.model;
 
 /**
  * @author Paramanathan Ilanthirayan <theebankala@gmail.com>
  * @version 1.0.0
- * @since 12th of July 2021
+ * @since 13th of July 2021
  */
-@Entity(tableName = IImageModel.TABLE_NAME)
-public class ImageModelEntity {
-
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = IImageModel.Columns._ID)
-    public int base_id;
+public class ImageModel {
 
     private String url;
     private String name;
@@ -28,7 +17,6 @@ public class ImageModelEntity {
     private String thumbnail;
     private String thumbnail_height;
     private String thumbnail_width;
-
 
     public String getUrl() {
         return url;

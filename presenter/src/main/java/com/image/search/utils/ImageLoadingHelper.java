@@ -10,7 +10,7 @@ import com.image.search.di.module.GlideRequests;
 import javax.inject.Inject;
 
 /**
- * @author Paramanathan Ilandrayan <theebankala@gmail.com>
+ * @author Paramanathan Ilanthirayan <theebankala@gmail.com>
  * @version 1.0.0
  * @since 12th of July 2021
  */

@@ -7,7 +7,7 @@ import io.reactivex.Scheduler;
  * Useful to encapsulate a UI Thread for example, since some job will be done in background, an
  * implementation of this interface will change context and update the UI.
  *
- * @author Paramanathan Ilandrayan <theebankala@gmail.com>
+ * @author Paramanathan Ilanthirayan <theebankala@gmail.com>
  * @version 1.0.0
  * @since 12th of July 2021
  */
