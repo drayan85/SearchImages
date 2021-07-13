@@ -7,6 +7,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.image.search.data.database.dao.SearchImageDao;
 import com.image.search.data.database.entity.ImageModelEntity;
 
 
@@ -22,6 +23,8 @@ public abstract class AppDatabase extends RoomDatabase {
     public static final String DB_NAME = "search_image_container.db";
 
     private static AppDatabase INSTANCE;
+
+    public abstract SearchImageDao searchImageDao();
 
     private static final Object sLock = new Object();
 

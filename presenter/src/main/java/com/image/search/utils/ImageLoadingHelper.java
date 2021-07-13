@@ -4,8 +4,6 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.ImageView;
 
-import com.image.search.di.module.GlideApp;
-import com.image.search.di.module.GlideRequests;
 
 import javax.inject.Inject;
 

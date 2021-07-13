@@ -12,6 +12,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.image.search.BaseActivity;
+import com.image.search.R;
+import com.image.search.di.component.DaggerSearchImagesActivityComponent;
+import com.image.search.di.module.SearchImageModule;
+import com.image.search.di.module.SearchImagesActivityModule;
 
 import javax.inject.Inject;
 
@@ -27,9 +31,6 @@ public class SearchImagesActivity extends BaseActivity {
 
     private SearchImagesViewModel mSearchImagesViewModel;
 
-
-    private LifecycleRegistry registry = new LifecycleRegistry(this);
-
     public static void start(final Context context) {
         Intent starter = new Intent(context, SearchImagesActivity.class);
         context.startActivity(starter);
@@ -37,16 +38,44 @@ public class SearchImagesActivity extends BaseActivity {
 
     @Override
     protected void resolveDaggerDependency() {
-
+        DaggerSearchImagesActivityComponent
+                .builder()
+                .applicationComponent(getApplicationComponent())
+                .searchImageModule(new SearchImageModule())
+                .searchImagesActivityModule(new SearchImagesActivityModule())
+                .build()
+                .inject(this);
     }
 
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_search_images);
 
         onViewReady(savedInstanceState, getIntent());
-        mSearchImagesViewModel = new ViewModelProvider(this).get(SearchImagesViewModel.class);
+        mSearchImagesViewModel = ViewModelProviders.of(this, mSearchImagesViewModelFactory).get(SearchImagesViewModel.class);
+
+        mSearchImagesViewModel.imageModels().observe(this, imageModels -> {
+            if (imageModels.length == 0) {
+                if (!isInternetAvailable()) {
+                    //display no internet
+                } else {
+                    // display empty
+                }
+            } else {
+                // add to the adapter
+                if (mSearchImagesViewModel.mIsNewLiveData.get()) {
+                    // set the adapter to null
+                    mSearchImagesViewModel.mIsNewLiveData.set(false);
+                }
+            }
+        });
+
+        //TODO test
+        mSearchImagesViewModel.getImagesBasedOnQueryString(true, "sea", isInternetAvailable());
+
+
+
     }
 
     private void hideKeyboard() {

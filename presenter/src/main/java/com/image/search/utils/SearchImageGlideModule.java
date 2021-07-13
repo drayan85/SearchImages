@@ -1,4 +1,4 @@
-package com.image.search.di.module;
+package com.image.search.utils;
 
 import android.content.Context;
 
@@ -17,7 +17,6 @@ import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.module.AppGlideModule;
 import com.bumptech.glide.request.RequestOptions;
 import com.image.search.BuildConfig;
-import com.image.search.utils.JsonFormatHttLogging;
 
 import java.io.InputStream;
 

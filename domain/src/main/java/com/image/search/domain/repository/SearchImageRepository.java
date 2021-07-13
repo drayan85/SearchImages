@@ -1,6 +1,6 @@
 package com.image.search.domain.repository;
 
-import com.image.search.domain.model.ImageModel;
+import com.image.search.domain.model.http.response.ImageSearchResponse;
 
 import io.reactivex.Observable;
 
@@ -11,5 +11,5 @@ import io.reactivex.Observable;
  */
 public interface SearchImageRepository {
 
-    Observable<ImageModel[]> getSearchImagesBasedOnQuery(String query, int page, int perSize, boolean isInternetAvailable);
+    Observable<ImageSearchResponse> getSearchImagesBasedOnQuery(String query, int page, int perSize, boolean isInternetAvailable);
 }

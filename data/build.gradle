@@ -13,6 +13,12 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField "String" , "API_KEY" ,  "\"$RAPID_API_KEY\""
+    }
+
+    buildTypes.each {
+        it.buildConfigField 'String', 'RAPID_API_HOST', "\"contextualwebsearch-websearch-v1.p.rapidapi.com\""
     }
 
     buildTypes {
