@@ -1,9 +1,9 @@
-package com.image.search.domain.database.table_def;
+package com.image.search.data.database.table_def;
 
 import android.provider.BaseColumns;
 
 /**
- * @author Paramanathan Ilandrayan <theebankala@gmail.com>
+ * @author Paramanathan Ilanthirayan <theebankala@gmail.com>
  * @version 1.0.0
  * @since 12th of July 2021
  */

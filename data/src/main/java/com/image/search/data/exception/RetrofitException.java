@@ -1,4 +1,4 @@
-package com.image.search.domain.exception;
+package com.image.search.data.exception;
 
 
 import java.io.IOException;
@@ -10,7 +10,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 /**
- * @author Paramanathan Ilandrayan <theebankala@gmail.com>
+ * @author Paramanathan Ilanthirayan <theebankala@gmail.com>
  * @version 1.0.0
  * @since 12th of July 2021
  */

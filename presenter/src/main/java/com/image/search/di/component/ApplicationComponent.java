@@ -9,7 +9,7 @@ import dagger.Component;
 /**
  * A component whose lifetime is the life of the application.
  *
- * @author Pramanathan Ilandrayan <theebankala@gmail.com>
+ * @author Pramanathan Ilanthirayan <theebankala@gmail.com>
  * @version 1.0.0
  * @since 12th of July 2021
  */

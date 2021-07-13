@@ -1,6 +1,8 @@
-package com.image.search.domain.executor;
+package com.image.search.data.executor;
 
 import androidx.annotation.NonNull;
+
+import com.image.search.domain.executor.ThreadExecutor;
 
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
@@ -11,7 +13,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 /**
- * @author Paramanathan Ilandrayan <theebankala@gmail.com>
+ * @author Paramanathan Ilanthirayan <theebankala@gmail.com>
  * @version 1.0.0
  * @since 12th of July 2021
  */

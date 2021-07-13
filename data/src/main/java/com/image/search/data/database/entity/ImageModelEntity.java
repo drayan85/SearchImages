@@ -1,14 +1,14 @@
-package com.image.search.domain.database.entity;
+package com.image.search.data.database.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.image.search.domain.database.table_def.IImageModel;
+import com.image.search.data.database.table_def.IImageModel;
 
 /**
- * @author Paramanathan Ilandrayan <theebankala@gmail.com>
- * @version 2.0.0
+ * @author Paramanathan Ilanthirayan <theebankala@gmail.com>
+ * @version 1.0.0
  * @since 12th of July 2021
  */
 @Entity(tableName = IImageModel.TABLE_NAME)
