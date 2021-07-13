@@ -31,8 +31,12 @@ public class SearchImagesViewModel extends ViewModel {
 
     protected final ObservableBoolean mIsNewLiveData = new ObservableBoolean();
 
+    protected int mTotalItemCount;
+
     private final AtomicInteger page = new AtomicInteger(0);
-    private static final int PER_PAGE = 10;
+    private static final int PER_PAGE = 15;
+
+    private ImageSearchResponseObserver mImageSearchResponseObserver;
 
     public SearchImagesViewModel(GetImagesBasedOnQueryUseCase getImagesBasedOnQueryUseCase) {
         this.mGetImagesBasedOnQueryUseCase = getImagesBasedOnQueryUseCase;
@@ -42,11 +46,17 @@ public class SearchImagesViewModel extends ViewModel {
         if (forceUpdate) {
             page.set(0);
         }
-        mGetImagesBasedOnQueryUseCase.execute(new ImageSearchResponseObserver() {
+
+        if (mImageSearchResponseObserver != null && !mImageSearchResponseObserver.isDisposed()) {
+            mImageSearchResponseObserver.dispose(); // if previous request already subscribe and not finish yet
+        }
+
+        mImageSearchResponseObserver = new ImageSearchResponseObserver() {
             @Override
             public void onNext(ImageSearchResponse imageSearchResponse) {
+                mTotalItemCount = imageSearchResponse.getTotalCount();
                 if (page.get() == 1) {
-                    //TODO need to clear the existing items on the view
+                    mIsNewLiveData.set(true);
                 }
                 imageModelsLiveData.postValue(imageSearchResponse.getValue());
             }
@@ -56,7 +66,8 @@ public class SearchImagesViewModel extends ViewModel {
                 retrofitExceptionHandler(e);
             }
 
-        }, new SearchImageParams
+        };
+        mGetImagesBasedOnQueryUseCase.execute(mImageSearchResponseObserver, new SearchImageParams
                 .SearchImageParamsBuilder(isInternetAvailable)
                 .setQuery(query).setPage_size(PER_PAGE)
                 .setPage_number(page.incrementAndGet())

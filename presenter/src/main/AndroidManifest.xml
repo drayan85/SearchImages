@@ -23,7 +23,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".feature.search.SearchImagesActivity"/>
+        <activity
+            android:name=".feature.search.SearchImagesActivity"
+            android:theme="@style/MyMaterialTheme"/>
+
+        <activity android:name=".feature.details.ImageDetailsActivity"/>
 
     </application>
 
