@@ -31,15 +31,15 @@ public class DiskSearchImageDataSource implements SearchImageDataSource {
     }
 
     @Override
-    public Observable<ImageSearchResponse> getSearchImagesBasedOnQuery(final String query, final int page, final int perSize) {
-        return mAppDatabase.searchImageDao().getPaginatedImagesBasedOnQuery(page, page * perSize, query)
+    public Observable<ImageSearchResponse> getSearchImagesBasedOnQuery(final String query, final int page, final int per_page) {
+        return mAppDatabase.searchImageDao().getPaginatedImagesBasedOnQuery(per_page, page * per_page, query)
                 .defaultIfEmpty(new ImageModelEntity[0])
                 .toObservable()
                 .map(imageModelEntities -> {
                     ImageSearchResponse imageSearchResponse = new ImageSearchResponse();
                     imageSearchResponse.set_type("_images");
                     imageSearchResponse.setValue(mapper.transForm(imageModelEntities));
-                    //TODO imageSearchResponse.setTotalCount(0);
+                    imageSearchResponse.setTotalCount(mAppDatabase.searchImageDao().getTotalNumberOfItemsForGivenSearchQuery(query).blockingGet(0));
                     return imageSearchResponse;
                 })
                 .subscribeOn(Schedulers.from(mThreadExecutor))
