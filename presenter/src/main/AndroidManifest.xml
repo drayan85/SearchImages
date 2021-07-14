@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ImageSearch">
 
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".feature.splash.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +27,9 @@
             android:name=".feature.search.SearchImagesActivity"
             android:theme="@style/MyMaterialTheme"/>
 
-        <activity android:name=".feature.details.ImageDetailsActivity"/>
+        <activity
+            android:name=".feature.details.ImageDetailsActivity"
+            android:theme="@style/MyMaterialTheme"/>
 
     </application>
 
