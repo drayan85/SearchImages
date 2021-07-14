@@ -1,7 +1,7 @@
 package com.image.search.domain.model;
 
 /**
- * @author Paramanathan Ilandrayan <theebankala@gmail.com>
+ * @author Paramanathan Ilanthirayan <theebankala@gmail.com>
  * @version 1.0.0
  * @since 13th of July 2021
  */

@@ -1,5 +1,6 @@
 package com.image.search.data.database.entity;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Index;
@@ -21,6 +22,7 @@ public class ImageModelEntity {
     @ColumnInfo(name = IImageModel.Columns._ID)
     public int base_id;
 
+    @NonNull
     private String url;
     private int height;
     private int width;

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -23,7 +24,6 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
@@ -224,7 +224,7 @@ public class SearchImagesActivity extends BaseActivity implements ImageRecyclerV
 
         // Change search close button image
         ImageView closeButton = (ImageView) searchView.findViewById(R.id.search_close_btn);
-        VectorDrawableCompat vectorDrawableCompat = VectorDrawableCompat.create(getResources(), R.drawable.avd_ic_close_black_24dp, null);
+        VectorDrawableCompat vectorDrawableCompat = VectorDrawableCompat.create(getResources(), R.drawable.avd_ic_close_white_24dp, null);
         closeButton.setImageDrawable(vectorDrawableCompat);
 
         // set hint and the text colors
@@ -276,14 +276,7 @@ public class SearchImagesActivity extends BaseActivity implements ImageRecyclerV
         RxSearchObservable.fromView(searchView, this)
                 .debounce(300, TimeUnit.MILLISECONDS)
                 .filter(query -> {
-                    if (!isInternetAvailable()) {
-                        //handle activity has been killed before execute this line since has time delay
-                        try {
-                            displayToastMessage(getResources().getString(R.string.no_internet_title_text));
-                        } catch (RuntimeException e) {
-                            e.printStackTrace();
-                        }
-                    } else if (!TextUtils.isEmpty(query)) {
+                    if (!TextUtils.isEmpty(query)) {
                         runOnUiThread(() -> {
                             mNoInternetConnectionView.setVisibility(View.GONE);
                             mEmptyResultLayout.setVisibility(View.GONE);
@@ -309,5 +302,13 @@ public class SearchImagesActivity extends BaseActivity implements ImageRecyclerV
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
