@@ -1,0 +1,28 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+ext{
+    RETROFIT_VERSION = "2.6.0"
+    GSON_VERSION = "2.8.6"
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation "com.squareup.retrofit2:retrofit:${RETROFIT_VERSION}"
+    implementation 'com.google.guava:guava:24.1-jre'
+    implementation "com.google.code.gson:gson:${GSON_VERSION}"
+
+    implementation 'javax.inject:javax.inject:1'
+
+    //RxJava
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:2.28.2'
+    testImplementation 'org.assertj:assertj-core:3.9.0'
+}
+java.targetCompatibility = JavaVersion.VERSION_1_8

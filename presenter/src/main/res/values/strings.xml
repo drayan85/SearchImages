@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Image Search</string>
+    <string name="no_internet_title_text">Internet connection is not available!</string>
+    <string name="loading_text">Loading...</string>
+    <string name="no_result_found_text">No results found!</string>
+    <string name="search_hint">Search Images</string>
+    <string name="start_search_btn_txt">Click Here To Start Search Images</string>
+    <string name="search_source_txt">https://rapidapi.com/contextualwebsearch/api/web-search</string>
+    <string name="name_txt">Name:</string>
+    <string name="title_txt">Title:</string>
+    <string name="web_search_url_txt">Web Search Url:</string>
+    <string name="web_page_url_txt">Web Page Url:</string>
+</resources>

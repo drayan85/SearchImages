@@ -1,0 +1,4 @@
+rootProject.name = "Image Search"
+include ':presenter'
+include ':domain'
+include ':data'
