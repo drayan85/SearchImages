@@ -31,6 +31,10 @@ public class SearchImageDaoTest {
     private SearchImageDao mSearchImageDao;
     private ImageModelEntity mImageModelEntity1, mImageModelEntity2, mImageModelEntity3;
 
+    private static final int PAGE = 1;
+    private static final int PER_PAGE = 10;
+
+
     @Before
     public void createDataBase() {
         Context context = InstrumentationRegistry.getInstrumentation().getTargetContext().getApplicationContext();
@@ -88,7 +92,7 @@ public class SearchImageDaoTest {
 
     @Test
     public void getImageModelsWhenNoItemsInserted() {
-        ImageModelEntity[] imageModelEntities = mSearchImageDao.getPaginatedImagesBasedOnQuery(10, 0, "the").blockingGet();
+        ImageModelEntity[] imageModelEntities = mSearchImageDao.getPaginatedImagesBasedOnQuery(PER_PAGE, (PAGE -1) * PER_PAGE, "the").blockingGet();
         assertEquals(0, imageModelEntities.length);
     }
 
@@ -109,7 +113,7 @@ public class SearchImageDaoTest {
         mSearchImageDao.insertImageModelEntities(mImageModelEntity2); // contain word 'to'
         mSearchImageDao.insertImageModelEntities(mImageModelEntity3); // contain word 'to'
 
-        ImageModelEntity[] imageModelEntities = mSearchImageDao.getPaginatedImagesBasedOnQuery(10, 0, "to").blockingGet();
+        ImageModelEntity[] imageModelEntities = mSearchImageDao.getPaginatedImagesBasedOnQuery(PER_PAGE, (PAGE -1) * PER_PAGE, "to").blockingGet();
 
         int count = mSearchImageDao.getTotalNumberOfItemsForGivenSearchQuery("to").blockingGet(0);
 

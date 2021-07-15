@@ -32,7 +32,8 @@ public class DiskSearchImageDataSource implements SearchImageDataSource {
 
     @Override
     public Observable<ImageSearchResponse> getSearchImagesBasedOnQuery(final String query, final int page, final int per_page) {
-        return mAppDatabase.searchImageDao().getPaginatedImagesBasedOnQuery(per_page, page * per_page, query)
+        int offset = (page - 1) * per_page;
+        return mAppDatabase.searchImageDao().getPaginatedImagesBasedOnQuery(per_page, offset, query)
                 .defaultIfEmpty(new ImageModelEntity[0])
                 .toObservable()
                 .map(imageModelEntities -> {
