@@ -51,7 +51,7 @@ android {
 }
 
 ext {
-    OKHTTP_VERSION = "4.9.0"
+    OKHTTP_VERSION = "4.9.0" // require min API 21 (Android 5+)
     RETROFIT_VERSION = "2.9.0"
     ROOM_RUNTIME = "2.1.0"
 }
@@ -87,6 +87,7 @@ dependencies {
         exclude group: 'com.google.code.gson', module: 'gson'
     }
 
+    implementation "com.squareup.okhttp3:okhttp:${OKHTTP_VERSION}"
     implementation ("com.squareup.okhttp3:logging-interceptor:${OKHTTP_VERSION}"){
         exclude group: 'com.squareup.okhttp3', module: 'okhttp'
     }
