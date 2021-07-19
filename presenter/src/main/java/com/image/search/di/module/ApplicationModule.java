@@ -93,8 +93,8 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    OkHttpClient provideOkHttpClient1(final Cache cache,
-                                      final HttpLoggingInterceptor httpLoggingInterceptor) {
+    OkHttpClient provideOkHttpClient(final Cache cache,
+                                     final HttpLoggingInterceptor httpLoggingInterceptor) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder()
                 .cache(cache)
                 .connectTimeout(20, TimeUnit.SECONDS)
