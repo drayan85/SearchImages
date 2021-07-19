@@ -1,6 +1,6 @@
 package com.image.search;
 
-import android.app.Application;
+import androidx.multidex.MultiDexApplication;
 
 import com.image.search.di.component.ApplicationComponent;
 import com.image.search.di.component.DaggerApplicationComponent;
@@ -11,7 +11,7 @@ import com.image.search.di.module.ApplicationModule;
  * @version 1.0.0
  * @since 12th og July 2021
  */
-public class ImageSearchApplication extends Application {
+public class ImageSearchApplication extends MultiDexApplication {
 
     private ApplicationComponent mApplicationComponent;
 
