@@ -1,6 +1,6 @@
 package com.image.search.data.exception;
 
-import org.jetbrains.annotations.NotNull;
+import androidx.annotation.NonNull;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
@@ -34,7 +34,7 @@ public class RxErrorHandlingCallAdapterFactory extends CallAdapter.Factory{
     }
 
     @Override
-    public CallAdapter<?, ?> get(@NotNull final Type returnType, @NotNull final Annotation[] annotations, @NotNull final Retrofit retrofit) {
+    public CallAdapter<?, ?> get(@NonNull final Type returnType, @NonNull final Annotation[] annotations, @NonNull final Retrofit retrofit) {
         return new RxCallAdapterWrapper<>(retrofit, mOriginalCallAdapterFactory.get(returnType, annotations, retrofit));
     }
 
