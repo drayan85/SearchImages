@@ -3,14 +3,12 @@ apply plugin: 'java'
 sourceCompatibility = 1.8
 
 ext{
-    RETROFIT_VERSION = "2.6.0"
     GSON_VERSION = "2.8.6"
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation "com.squareup.retrofit2:retrofit:${RETROFIT_VERSION}"
     implementation 'com.google.guava:guava:24.1-jre'
     implementation "com.google.code.gson:gson:${GSON_VERSION}"
 
